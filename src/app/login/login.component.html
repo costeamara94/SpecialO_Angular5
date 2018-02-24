@@ -3,19 +3,23 @@
         <div class="col-md-4">
             <img src="assets/images/logo.png" width="150px" class="user-avatar" />
             <h1>Special Olympics Login</h1>
-            <form role="form">
+            <form name="myForm" role="form">
                 <div class="form-content">
                     <div class="form-group">
-                        <input type="text" ng-model="name" class="form-control input-underline input-lg" id="" placeholder="Email">
+                        <input [(ngModel)]="email" type="email" name="email"
+                               class="form-control input-underline input-lg" id="email-login" placeholder="Email">
                     </div>
 
                     <div class="form-group">
-                        <input type="password" class="form-control input-underline input-lg" id="" placeholder="Password">
+                        <input type="password" name="pass" class="form-control input-underline input-lg" id="pass-login"
+                               placeholder="Password">
                     </div>
                 </div>
-                <a class="btn rounded-btn" [routerLink]="['/dashboard']" (click)="onLoggedin()"> Log in </a>
-                &nbsp;
-                <a class="btn rounded-btn" [routerLink]="['/signup']">Register</a>
+                <button [disabled]="email.length==0 || email.indexOf('@')==-1 || email.indexOf('@')==(email.length - 1)"
+                        class="btn rounded-btn" [routerLink]="['/dashboard']" (click)="onLoggedin()">
+                    Log In
+                </button>
+                <button class="btn rounded-btn" [routerLink]="['/signup']">Register</button>
             </form>
         </div>
     </div>
