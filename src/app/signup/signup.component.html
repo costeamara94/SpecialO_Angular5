@@ -6,28 +6,37 @@
             <form name="myForm" role="form">
                 <div class="form-content">
                     <div class="form-group">
-                        <input type="text" class="form-control input-underline input-lg" id="register-name"
+                        <input [(ngModel)]="name" name="name" [ngModelOptions]="{standalone: true}" type="text"
+                               class="form-control input-underline input-lg" id="register-name"
                                placeholder="Full Name" required>
                     </div>
 
                     <div class="form-group">
-                        <input type="email" class="form-control input-underline input-lg" id="register-email"
+                        <input [(ngModel)]="email" name="email" [ngModelOptions]="{standalone: true}" type="email"
+                               class="form-control input-underline input-lg" id="register-email"
                                placeholder="Email" required>
-                        <!--<span style="color:red" ng-show="myForm.register-email.$dirty && myForm.register-email.$invalid">-->
-                        <!--<span ng-show="myForm.register-email.$error.required">Username is required.</span>-->
                     </div>
 
                     <div class="form-group">
-                        <input type="password" class="form-control input-underline input-lg" id="register-pass"
+                        <input [(ngModel)]="pass" name="pass" [ngModelOptions]="{standalone: true}" type="password"
+                               class="form-control input-underline input-lg" id="register-pass"
                                placeholder="Password" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control input-underline input-lg" id="register-pass2"
+                        <input [(ngModel)]="pass2" name="pass2" [ngModelOptions]="{standalone: true}" type="password"
+                               class="form-control input-underline input-lg" id="register-pass2"
                                placeholder="Repeat Password" required>
                     </div>
                 </div>
-                <a class="btn rounded-btn" [routerLink]="['/dashboard']"> Register </a>&nbsp;
-                <a class="btn rounded-btn" [routerLink]="['/login']"> Log in </a>
+                <button [disabled]="email.length == 0 ||
+                                    email.indexOf('@') == -1 ||
+                                    email.indexOf('@') == email.length - 1 ||
+                                    pass.length == 0 ||
+                                    pass != pass2 ||
+                                    name.length == 0"
+                        class="btn rounded-btn" [routerLink]="['/dashboard']"> Register
+                </button>&nbsp;
+                <button class="btn rounded-btn" [routerLink]="['/login']"> Log in</button>
             </form>
         </div>
     </div>

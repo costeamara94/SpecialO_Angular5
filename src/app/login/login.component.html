@@ -11,11 +11,15 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="password" name="pass" class="form-control input-underline input-lg" id="pass-login"
+                        <input [(ngModel)]="pass" type="password" name="pass"
+                               class="form-control input-underline input-lg" id="pass-login"
                                placeholder="Password">
                     </div>
                 </div>
-                <button [disabled]="email.length==0 || email.indexOf('@')==-1 || email.indexOf('@')==(email.length - 1)"
+                <button [disabled]="email.length == 0 ||
+                                    email.indexOf('@') == -1 ||
+                                    email.indexOf('@') == email.length - 1 ||
+                                    pass.length == 0"
                         class="btn rounded-btn" [routerLink]="['/dashboard']" (click)="onLoggedin()">
                     Log In
                 </button>

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { routerTransition } from '../router.animations';
+import {Component, OnInit} from '@angular/core';
+import {routerTransition} from '../router.animations';
 
 @Component({
     selector: 'app-signup',
@@ -8,6 +8,11 @@ import { routerTransition } from '../router.animations';
     animations: [routerTransition()]
 })
 export class SignupComponent implements OnInit {
+    name = '';
+    email = '';
+    pass = '';
+    pass2 = '';
+
     constructor() {}
 
     ngOnInit() {}

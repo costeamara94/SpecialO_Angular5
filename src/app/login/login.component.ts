@@ -11,6 +11,7 @@ import {routerTransition} from '../router.animations';
 export class LoginComponent implements OnInit {
     disabled = 0;
     email = '';
+    pass = '';
 
     if(email = '') {
         this.disabled = 1;
