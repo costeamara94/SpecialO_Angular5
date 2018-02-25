@@ -52,6 +52,9 @@ $topnav-background-color: #222;
         color: rgba(255, 255, 255, 1);
         border: 2px solid rgba(255, 255, 255, 1);
         outline: none;
+        #disable-popup {
+            visibility: visible;
+        }
     }
 
     h1 {
@@ -92,4 +95,22 @@ $topnav-background-color: #222;
         border-radius: 50%;
         border: 2px solid #fff;
     }
+}
+
+#disable-popup {
+    padding-top: 10px;
+    color: crimson;
+    visibility: hidden;
+}
+
+#to-disable-button {
+    z-index: -1;
+}
+
+#ghost-button {
+    position: absolute;
+    color: rgba(255, 255, 255, 0);
+    border: none;
+    background: transparent;
+    z-index: 1;
 }
