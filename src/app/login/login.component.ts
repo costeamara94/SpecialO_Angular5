@@ -17,10 +17,12 @@ export class LoginComponent implements OnInit {
 
     constructor(public router: Router) {}
 
-    ngOnInit() {}
+    ngOnInit() {
+    }
 
     onLoggedin() {
         localStorage.setItem('isLoggedin', 'true');
+        console.log('Logare cu datele: ', this.email, ', ', this.pass);
     }
 
     onHover() {

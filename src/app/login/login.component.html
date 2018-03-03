@@ -31,6 +31,9 @@
             </form>
             <p name="disable-popup" id="disable-popup" [ngStyle]="{'visibility': hovered == 1 ? 'visible' : 'hidden'}">
                 {{setMessage()}}</p>
+            <div *ngFor="let user of usersObservable | async">
+                <p>{{user.email}}</p>
+            </div>
         </div>
     </div>
 </div>
