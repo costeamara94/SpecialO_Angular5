@@ -3,34 +3,20 @@
         <div class="col-md-4">
             <img src="assets/images/logo.png" width="150px" class="user-avatar" />
             <h1>Special Olympics Login</h1>
-            <form name="myForm" role="form">
+            <form role="form">
                 <div class="form-content">
                     <div class="form-group">
-                        <input [(ngModel)]="email" type="email" name="email"
-                               class="form-control input-underline input-lg" id="email-login" placeholder="Email">
+                        <input type="text" ng-model="name" class="form-control input-underline input-lg" id="myEmail" placeholder="Email">
                     </div>
 
                     <div class="form-group">
-                        <input [(ngModel)]="pass" type="password" name="pass"
-                               class="form-control input-underline input-lg" id="pass-login"
-                               placeholder="Password">
+                        <input type="password" class="form-control input-underline input-lg" id="myPass" placeholder="Password">
                     </div>
                 </div>
-                <div class="btn rounded-btn" id="ghost-button"
-                     (mouseover)="onHover()" (mouseleave)="notHover()">Log In
-                </div>
-                <button [disabled]="email.length == 0 ||
-                                    email.indexOf('@') == -1 ||
-                                    email.indexOf('@') == email.length - 1 ||
-                                    pass.length == 0"
-                        class="btn rounded-btn" id="to-disable-button" [routerLink]="['/dashboard']"
-                        (click)="onLoggedin()">
-                    Log In
-                </button>
-                <button class="btn rounded-btn" [routerLink]="['/signup']">Register</button>
+                <a class="btn rounded-btn" (click)="onSignin()"  (click)="onLoggedin()"> Log in </a>
+                &nbsp;
+                <a class="btn rounded-btn" [routerLink]="['/signup']">Register</a>
             </form>
-            <p name="disable-popup" id="disable-popup" [ngStyle]="{'visibility': hovered == 1 ? 'visible' : 'hidden'}">
-                {{setMessage()}}</p>
         </div>
     </div>
 </div>

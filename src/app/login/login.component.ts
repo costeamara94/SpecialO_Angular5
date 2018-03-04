@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {routerTransition} from '../router.animations';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { routerTransition } from '../router.animations';
+import {AuthService} from '../core/auth.service';
 
 @Component({
     selector: 'app-login',
@@ -9,38 +10,20 @@ import {routerTransition} from '../router.animations';
     animations: [routerTransition()]
 })
 export class LoginComponent implements OnInit {
-    disabled = 0;
-    email = '';
-    pass = '';
-    hovered = 0;
-    message = '';
-
-    constructor(public router: Router) {}
-
+    constructor(public router: Router, private authService : AuthService) {}
+    private email: string;
+    private password: string;
     ngOnInit() {}
 
     onLoggedin() {
         localStorage.setItem('isLoggedin', 'true');
     }
+    onSignin() {
+        console.log('fmm vladimir la login');
+        this.email = ((document.getElementById('myEmail') as HTMLInputElement).value );
+        this.password = ((document.getElementById('myPass') as HTMLInputElement).value );
+        this.authService.signinUser(this.email, this.password);
 
-    onHover() {
-        this.hovered = 1;
-    }
+              }
 
-    notHover() {
-        this.hovered = 0;
-    }
-
-    setMessage() {
-        if (this.email === '') {
-            return 'Email can\'t be empty';
-        } else if (this.pass.length === 0) {
-            return 'Password can\'t be empty';
-        } else if (this.email.indexOf('@') === -1 ||
-            this.email.indexOf('@') === this.email.length - 1) {
-            return 'Incorrect email';
-        }
-    }
 }
-
-

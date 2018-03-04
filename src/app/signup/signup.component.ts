@@ -14,7 +14,7 @@ export class SignupComponent implements OnInit {
     private password: string;
 
     ngOnInit() {}
-    printTest() {
+    signUp() {
         console.log('fmm vladimir');
         this.email = ((document.getElementById('myEmail') as HTMLInputElement).value );
         this.password = ((document.getElementById('myPass1') as HTMLInputElement).value );
