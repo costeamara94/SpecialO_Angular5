@@ -1,48 +1,45 @@
 <div class="login-page" [@routerTransition]>
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAVjHRAq955xcz_uHfIRCfLLYqNpIKVQ_s",
+            authDomain: "test-auth-28f0b.firebaseapp.com",
+            databaseURL: "https://test-auth-28f0b.firebaseio.com",
+            projectId: "test-auth-28f0b",
+            storageBucket: "test-auth-28f0b.appspot.com",
+            messagingSenderId: "676980497855"
+        };
+        firebase.initializeApp(config);
+    </script>
     <div class="row justify-content-md-center">
         <div class="col-md-4">
             <img class="user-avatar" src="assets/images/logo.png" width="150px" />
             <h1>SB Admin BS4 Angular5</h1>
-            <form name="myForm" role="form">
+            <form role="form">
                 <div class="form-content">
                     <div class="form-group">
-                        <input [(ngModel)]="name" name="name" [ngModelOptions]="{standalone: true}" type="text"
-                               class="form-control input-underline input-lg" id="register-name"
-                               placeholder="Full Name" required>
+                        <input type="text" class="form-control input-underline input-lg" id="" placeholder="Full Name">
                     </div>
 
                     <div class="form-group">
-                        <input [(ngModel)]="email" name="email" [ngModelOptions]="{standalone: true}" type="email"
-                               class="form-control input-underline input-lg" id="register-email"
-                               placeholder="Email" required>
+                        <input type="email" class="form-control input-underline input-lg" id="myEmail" placeholder="Email"
+                            required
+                        >
                     </div>
 
                     <div class="form-group">
-                        <input [(ngModel)]="pass" name="pass" [ngModelOptions]="{standalone: true}" type="password"
-                               class="form-control input-underline input-lg" id="register-pass"
-                               placeholder="Password" required>
+                        <input type="password" class="form-control input-underline input-lg" id="myPass1" placeholder="Password">
                     </div>
                     <div class="form-group">
-                        <input [(ngModel)]="pass2" name="pass2" [ngModelOptions]="{standalone: true}" type="password"
-                               class="form-control input-underline input-lg" id="register-pass2"
-                               placeholder="Repeat Password" required>
+                        <input type="password" class="form-control input-underline input-lg" id="myPass2" placeholder="Repeat Password">
                     </div>
                 </div>
-                <div class="btn rounded-btn" id="ghost-button"
-                     (mouseover)="onHover()" (mouseleave)="notHover()">Register
-                </div>
-                <button [disabled]="email.length == 0 ||
-                                    email.indexOf('@') == -1 ||
-                                    email.indexOf('@') == email.length - 1 ||
-                                    pass.length == 0 ||
-                                    pass != pass2 ||
-                                    name.length == 0"
-                        class="btn rounded-btn" id="singup-button" [routerLink]="['/dashboard']"> Register
-                </button>&nbsp;
-                <button class="btn rounded-btn" [routerLink]="['/login']"> Log in</button>
+                <button
+                    (click)="printTest()"
+                    class="btn rounded-btn" > Register </button>&nbsp;
+                <a class="btn rounded-btn" [routerLink]="['/login']"> Log in </a>
             </form>
-            <p name="disable-popup" id="disable-popup" [ngStyle]="{'visibility': hovered == 1 ? 'visible' : 'hidden'}">
-                {{setMessage()}}</p>
         </div>
     </div>
 </div>

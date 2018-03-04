@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {routerTransition} from '../router.animations';
+import { Component, OnInit } from '@angular/core';
+import { routerTransition } from '../router.animations';
+import {AuthService} from '../core/auth.service';
 
 @Component({
     selector: 'app-signup',
@@ -8,37 +9,17 @@ import {routerTransition} from '../router.animations';
     animations: [routerTransition()]
 })
 export class SignupComponent implements OnInit {
-    name = '';
-    email = '';
-    pass = '';
-    pass2 = '';
-    hovered = 0;
-    message = '';
-
-    constructor() {}
+    constructor(private authService: AuthService) {}
+    private email: string;
+    private password: string;
 
     ngOnInit() {}
-
-    onHover() {
-        this.hovered = 1;
-    }
-
-    notHover() {
-        this.hovered = 0;
-    }
-
-    setMessage() {
-        if (this.name === '') {
-            return 'Name can\'t be empty';
-        } else if (this.email === '') {
-            return 'Email can\'t be empty';
-        } else if (this.email.indexOf('@') === -1 ||
-            this.email.indexOf('@') === this.email.length - 1) {
-            return 'Incorrect email';
-        } else if (this.pass.length === 0) {
-            return 'Password can\'t be empty';
-        } else if (this.pass2 !== this.pass) {
-            return 'Passwords don\'t match';
-        }
+    printTest() {
+        console.log('fmm vladimir');
+        this.email = ((document.getElementById('myEmail') as HTMLInputElement).value );
+        this.password = ((document.getElementById('myPass1') as HTMLInputElement).value );
+        this.authService.signupUser(this.email, this.password);
+        console.log(this.email);
+        console.log(this.password);
     }
 }

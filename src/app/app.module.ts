@@ -12,6 +12,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {AuthGuard} from './shared';
 import {UserComponent} from './user/user.component';
+import {AuthService} from './core/auth.service';
 
 // AoT requires an exported function for factories
 export function createTranslateLoader(http: HttpClient) {
@@ -37,7 +38,7 @@ export function createTranslateLoader(http: HttpClient) {
         FormsModule
     ],
     declarations: [AppComponent, UserComponent],
-    providers: [AuthGuard],
+    providers: [AuthGuard, AuthService],
     bootstrap: [AppComponent]
 })
 export class AppModule {}
